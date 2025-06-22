@@ -1,12 +1,15 @@
 # my-blogger-agents
-A sophisticated Multi-agent Blog Post Generator that combines web research capabilities with professional writing expertise. 
 
-The workflow uses a multi-stage approach: 
+A sophisticated Multi-agent Blog Post Generator that combines web research capabilities with professional writing expertise. Provided as a RESTful API Service (implemented using FastAPI).
+
+The workflow uses a multi-stage approach:
+
 1. Intelligent web research and source gathering
 2. Content extraction and processing
 3. Professional blog post writing with proper citations.
 
 **Key capabilities:**
+
 - Advanced web research and source evaluation
 - Content scraping and processing
 - Professional writing with SEO optimization
@@ -14,6 +17,7 @@ The workflow uses a multi-stage approach:
 - Source attribution and fact verification
 
 **Example blog topics to try:**
+
 - "The Rise of Artificial Intelligence: Latest Technologies and Use-cases"
 - "How Quantum Computing is Revolutionizing Artificial Intelligence"
 - "How to build a Multi-agent AI Systems"
@@ -23,6 +27,7 @@ The workflow uses a multi-stage approach:
 - "The Evolution of Electric Vehicles: Current State and Future Trends"
 
 ## Technologies and Tools Used:
+
 - `Agno`: A Multi-agentic framework
 - `OpenAI`: LLM
 - `sqlite`: Agents' storage and memory
@@ -30,12 +35,86 @@ The workflow uses a multi-stage approach:
 - `newspaper4k`: Web search tool, for latest news search.
 - `Pydantic`: Used for structured/formatted agent response.
 
+## Endpoints
+
+- **BASE URL**: `http://0.0.0.0/5000`
+
+- GET `/health`: Health check
+
+- POST `/workflow/run`: Trigers the workflow run to generate a blog post
+
+  **_Request Body:_**
+
+  ```json
+  {
+    "topic": "the topic to generate a blog for"
+  }
+  ```
+
+  **_Sample Response:_**
+
+  ```json
+  {
+    "response": "The generated blog post"
+  }
+  ```
+
 ## Setup
 
-### Install Dependencies
+- Clone repo
+- Open repo dir on terminal (MacOS and Linux) or command prompt/Powershell (Windows)
+
+### Install uv
+
 ```bash
-$ pip install openai duckduckgo-search newspaper4k lxml_html_clean sqlalchemy agno
+$ pip install uv
 ```
 
+### Create and activate a virtual environment
+
+- Create a virtual environment
+
+  ```bash
+  $ uv venv
+  ```
+
+- Activate the virtual environment
+
+  - MacOs and Linux users (Terminal):
+
+    ```bash
+    $ source .venv/bin/activate
+    ```
+
+  - Windows users (CMD):
+
+    ```bash
+    $ .venv\Scripts\activate.bat
+    ```
+
+  - Windows users (Powershell):
+
+    ```bash
+    $ .venv/Scripts/activate.ps1
+    ```
+
+### Install Dependencies
+
+```bash
+$ make install
+```
+
+### Start the server (FastAPI)
+
+```bash
+$ make run-server
+```
+
+### Stop the server (FastAPI)
+
+- Go to the terminal or command prompt or powershell
+- Press `Cntrl` + `C` (windows) or `cmd` + `C` (MacOS)
+
 ### Contacts
+
 `Adedoyin Simeon Adeyemi` | [LinkedIn](https://www.linkedin.com/in/adedoyin-adeyemi-a7827b160/)
